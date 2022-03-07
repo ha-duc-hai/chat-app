@@ -18,10 +18,9 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_sign_in);
+        setContentView(binding.getRoot());
         setListeners();
     }
-
     private void setListeners() {
         binding.textCreateNewAccount.setOnClickListener(
                 v->startActivity(new Intent(getApplicationContext(), SignUpActivity.class))
