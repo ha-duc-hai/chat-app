@@ -39,8 +39,8 @@ public class SignInActivity extends AppCompatActivity {
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
                 })
-                .addOnFailureListener(exeption -> {
-                    Toast.makeText(getApplicationContext(), exeption.getMessage(), Toast.LENGTH_SHORT).show();
+                .addOnFailureListener(exception -> {
+                    Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 }
