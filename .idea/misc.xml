@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/backgroud_content_bottom.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/background_content_bottom.xml" value="0.2657407407407407" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/background_icon.xml" value="0.10462962962962963" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/ic_add.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/ic_logot.xml" value="0.26615384615384613" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/drawable/ic_logout.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/layout/activity_users.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/chat-app/app/src/main/res/layout/item_container_user.xml" value="0.264" />
         <entry key="..\:/Users/Duyxp/Desktop/Chatapp/chat-app/app/src/main/res/layout/activity_sign_in.xml" value="0.22" />
         <entry key="..\:/Users/Quyen/chat-app/app/src/main/res/drawable/backgroud_content_bottom.xml" value="0.1945" />
         <entry key="..\:/Users/Quyen/chat-app/app/src/main/res/drawable/background_icon.xml" value="0.1945" />

@@ -14,10 +14,10 @@ import com.example.chatapp.models.User;
 
 import java.util.List;
 
-public class UsersAdater extends RecyclerView.Adapter<UsersAdater.UserViewHolder> {
+public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
     private final List<User> users;
 
-    public UsersAdater(List<User> users) {
+    public UsersAdapter(List<User> users) {
         this.users = users;
     }
 
@@ -25,7 +25,7 @@ public class UsersAdater extends RecyclerView.Adapter<UsersAdater.UserViewHolder
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemContainerUserBinding itemContainerUserBinding =ItemContainerUserBinding.inflate(
-                LayoutInflater.from(parent,getItemCount()),
+                LayoutInflater.from(parent.getContext()),
                 parent,
                 false
         );
@@ -35,7 +35,6 @@ public class UsersAdater extends RecyclerView.Adapter<UsersAdater.UserViewHolder
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         holder.setUserdata(users.get(position));
-
     }
 
     @Override
@@ -44,14 +43,20 @@ public class UsersAdater extends RecyclerView.Adapter<UsersAdater.UserViewHolder
     }
 
     class UserViewHolder extends RecyclerView.ViewHolder{
-        UserViewHolder(com.example.chatapp.databinding.ItemContainerUserBinding){
-            super();
+        ItemContainerUserBinding binding;
+        UserViewHolder(ItemContainerUserBinding itemContainerUserBinding){
+            super(itemContainerUserBinding.getRoot());
+            binding = itemContainerUserBinding;
         }
-        void setUserdata(User user)
+        void setUserdata(User user) {
+            binding.textName.setText(user.name);
+            binding.textEmail.setText(user.email);
+            binding.imageProfile.setImageBitmap(getUserImage(user.image));
+        }
 
     }
-    private Bitmap getUserImage(String encodeImage){
-        byte[] bytes = Base64.decode(encodeImage, Base64.DEFAULT);
+    private Bitmap getUserImage(String encodedImage){
+        byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 }
