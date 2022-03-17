@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.chatapp.R;
 import com.example.chatapp.adapters.UsersAdapter;
 import com.example.chatapp.databinding.ActivityUsersBinding;
 import com.example.chatapp.models.User;
@@ -25,7 +24,7 @@ public class UsersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityUsersBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_users);
+        setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
         setListeners();
         getUsers();
