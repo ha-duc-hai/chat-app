@@ -25,11 +25,18 @@
         <entry key="..\:/Users/tanki/AndroidStudioProjects/chatapp/app/src/main/res/drawable/background_input.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/tanki/AndroidStudioProjects/chatapp/app/src/main/res/layout/activity_sign_in.xml" value="0.33" />
         <entry key="..\:/Users/tanki/AndroidStudioProjects/chatapp/app/src/main/res/layout/activity_sign_up.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/drawable/background_chat_input.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/drawable/background_content_top.xml" value="0.240625" />
         <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/drawable/background_input.xml" value="0.240625" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/drawable/background_received_message.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/drawable/background_send_message.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/activity_chat.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/activity_main.xml" value="0.2105978260869565" />
         <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/activity_sign_in.xml" value="0.2105978260869565" />
         <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/activity_sign_up.xml" value="0.2105978260869565" />
         <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/activity_users.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/item_container_received_message.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/item_container_send_messaage.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/tanki/Desktop/chat app/app/src/main/res/layout/item_container_user.xml" value="0.22447916666666667" />
       </map>
     </option>
