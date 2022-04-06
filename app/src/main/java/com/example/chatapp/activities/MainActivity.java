@@ -5,16 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.MediaPlayer;
+
 import android.os.Bundle;
-import android.os.ConditionVariable;
-import android.provider.ContactsContract;
-import android.text.style.LeadingMarginSpan;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.chatapp.R;
 import com.example.chatapp.adapters.RecentConversationsAdapter;
 import com.example.chatapp.databinding.ActivityMainBinding;
 import com.example.chatapp.listeners.ConversionListener;
@@ -44,7 +40,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ConversionListener {
+public class  MainActivity extends AppCompatActivity implements ConversionListener {
     private ActivityMainBinding binding;
     private PreferenceManager preferenceManager;
     private List<ChatMessage> conversations;
@@ -134,40 +130,25 @@ public class MainActivity extends AppCompatActivity implements ConversionListene
             }
             Collections.sort(conversations, (obj1, obj2) -> obj2.dateObject.compareTo(obj1.dateObject));
             conversationsAdapter.notifyDataSetChanged();
-            binding.conversationsRecycleView.smoothScrollToPosition(View.VISIBLE);
+            binding.conversationsRecycleView.smoothScrollToPosition(0);
+            binding.conversationsRecycleView.setVisibility(View.VISIBLE);
             binding.progressBar.setVisibility(View.GONE);
         }
     };
 
     private void getToken(){
 //        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(token -> updateToken(token));
-//        FirebaseMessaging.getInstance().token.addOnSuccessListener(this::updateToken);
-        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( new OnSuccessListener<InstanceIdResult>() {
-            @Override
-            public void onSuccess(InstanceIdResult instanceIdResult) {
-                String token = instanceIdResult.getToken();
-                FirebaseFirestore database = FirebaseFirestore.getInstance();
-                DocumentReference documentReference =
-                        database.collection(Constants.KEY_COLLECTION_USERS).document(
-                            preferenceManager.getString(Constants.KEY_USER_ID));
-                documentReference.update(Constants.KEY_FCM_TOKEN, token)
-                        .addOnSuccessListener(unused -> showToast("Token updated successfully"))
-                        .addOnFailureListener(e -> showToast("Unable to update token"));
-                // Do whatever you want with your token now
-                // i.e. store it on SharedPreferences or DB
-                // or directly send it to server
-            }
-        });
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this::updateToken);
     }
 
-//    private void updateToken(InstanceIdResult token){
-//        FirebaseFirestore database = FirebaseFirestore.getInstance();
-//        DocumentReference documentReference =
-//                database.collection(Constants.KEY_COLLECTION_USERS).document(
-//                    preferenceManager.getString(Constants.KEY_USER_ID));
-//        documentReference.update(Constants.KEY_FCM_TOKEN, token)
-//                .addOnFailureListener(e -> showToast("Unable to update token"));
-//    }
+    private void updateToken(InstanceIdResult token){
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        DocumentReference documentReference =
+                database.collection(Constants.KEY_COLLECTION_USERS).document(
+                    preferenceManager.getString(Constants.KEY_USER_ID));
+        documentReference.update(Constants.KEY_FCM_TOKEN, token)
+                .addOnFailureListener(e -> showToast("Unable to update token"));
+    }
     private void signOut(){
         showToast("Signing out...");
         FirebaseFirestore database = FirebaseFirestore.getInstance();

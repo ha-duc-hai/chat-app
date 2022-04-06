@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-public class RecentConversationsAdapter extends RecyclerView.Adapter<RecentConversationsAdapter.ConversionViewHoder>{
+public class RecentConversationsAdapter extends RecyclerView.Adapter<RecentConversationsAdapter.ConversionViewHolder>{
 
     private final List<ChatMessage> chatMessages;
     private final ConversionListener conversionListener;
@@ -29,8 +29,8 @@ public class RecentConversationsAdapter extends RecyclerView.Adapter<RecentConve
 
     @NonNull
     @Override
-    public ConversionViewHoder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ConversionViewHoder(
+    public ConversionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ConversionViewHolder(
                 ItemContainerRecentConversionBinding.inflate(
                         LayoutInflater.from(parent.getContext()),
                         parent,
@@ -40,8 +40,8 @@ public class RecentConversationsAdapter extends RecyclerView.Adapter<RecentConve
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecentConversationsAdapter.ConversionViewHoder hoder, int position) {
-        hoder.setData(chatMessages.get(position));
+    public void onBindViewHolder(@NonNull RecentConversationsAdapter.ConversionViewHolder holder, int position) {
+        holder.setData(chatMessages.get(position));
     }
 
     @Override
@@ -49,11 +49,11 @@ public class RecentConversationsAdapter extends RecyclerView.Adapter<RecentConve
         return chatMessages.size();
     }
 
-    class ConversionViewHoder extends RecyclerView.ViewHolder {
+    class ConversionViewHolder extends RecyclerView.ViewHolder {
 
         ItemContainerRecentConversionBinding binding;
 
-        ConversionViewHoder(ItemContainerRecentConversionBinding itemContainerRecentConversionBinding){
+        ConversionViewHolder(ItemContainerRecentConversionBinding itemContainerRecentConversionBinding){
             super(itemContainerRecentConversionBinding.getRoot());
             binding = itemContainerRecentConversionBinding;
         }
