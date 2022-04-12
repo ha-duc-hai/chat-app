@@ -16,23 +16,14 @@ import com.example.chatapp.models.ChatMessage;
 import com.example.chatapp.models.User;
 import com.example.chatapp.utilities.Constants;
 import com.example.chatapp.utilities.PreferenceManager;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-import com.google.firebase.messaging.FirebaseMessaging;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.DocumentFragment;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -135,11 +126,12 @@ public class  MainActivity extends BaseActivity implements ConversionListener {
     };
 
     private void getToken(){
-//        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(token -> updateToken(token));
-        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this::updateToken);
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(token -> updateToken(String.valueOf(token)));
+//        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this::updateToken);
     }
 
-    private void updateToken(InstanceIdResult token){
+    private void updateToken(String token){
+        preferenceManager.putString(Constants.KEY_FCM_TOKEN, token);
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         DocumentReference documentReference =
                 database.collection(Constants.KEY_COLLECTION_USERS).document(
