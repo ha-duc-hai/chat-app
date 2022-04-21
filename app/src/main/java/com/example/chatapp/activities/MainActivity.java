@@ -23,6 +23,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -126,8 +127,8 @@ public class  MainActivity extends BaseActivity implements ConversionListener {
     };
 
     private void getToken(){
-        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(token -> updateToken(String.valueOf(token)));
-//        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this::updateToken);
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(token -> updateToken(token.getToken()));
+//        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(this.updateToken(getToken()));
     }
 
     private void updateToken(String token){
